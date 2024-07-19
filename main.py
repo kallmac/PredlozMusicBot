@@ -80,7 +80,7 @@ def grade_music(message):
         caption='Постим?'
     )
     bot.send_message(chat_id=os.getenv('ADMIN_ID'),
-                     text=f'А? Username: {MessageMusicList[-1].getUserName()}',reply_markup=markup
+https://youtu.be/MjQnYY7D4G8?si=bBBLRGvy6gwOnIWT                     text=f'А? Username: {MessageMusicList[-1].getUserName()}',reply_markup=markup
     )
 
 @bot.callback_query_handler(func=lambda call: True)
