@@ -4,7 +4,7 @@ import eyed3
 
 from pytube import YouTube
 
-DOWNLOAD_PATH = "/home/ubuntu/bot/audio"
+DOWNLOAD_PATH = "audio"
 
 def load_audio(link: str):
     print(f"[link]: {link}")
@@ -12,8 +12,11 @@ def load_audio(link: str):
     try:
         yt = YouTube(link, use_oauth=True)
         stream = yt.streams.get_by_itag(251)
-
-        input_file = stream.download(output_path=DOWNLOAD_PATH)
+        try:
+            input_file = stream.download(output_path=DOWNLOAD_PATH)
+        except:
+            print("говно")
+            return -1
         output_file = input_file.replace(".webm", ".mp3")
 
         command = [
@@ -37,6 +40,7 @@ def load_audio(link: str):
         audiofile.tag.save()
         return output_file
     except:
+        print("говно2")
         return -1
     # return stream.download(output_path=DOWNLOAD_PATH)
 
