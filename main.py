@@ -3,6 +3,7 @@ from telebot import types
 from dotenv import load_dotenv
 import os
 
+from load_music import load_audio
 
 music_message_id_to_me = 0
 user_music_message_id = 0
@@ -27,15 +28,30 @@ class MusicMessage():
 
 MessageMusicList = []
 
+@bot.message_handler(commands=['app'])
+def runWebApp(message):
+    bot.reply_to(message, '✅Youtube.Music App for you — t.me/TestMusic2008Bot/predlozYouTubeMusic')
+
 @bot.message_handler(commands=['help', 'start'])
 def welcome_message(message):
-    bot.reply_to(message, """\
-Hi there, I am ПредложечныйБот!
-Он создан, чтобы предлагать музыку в телеграмм ПРАХХХ - t.me/mus_archives
-Найти свой трек в тг вы можете в ботах: t.me/vkm4bot и t.me/deezload2bot
-Бот анонимный, но не стоит кидать сюда пароли от крипто кошельков!\
-""")
+    bot.send_message(chat_id=os.getenv('ADMIN_ID'), text=f'@{message.chat.username} start the bot! Yea!')
+    bot.reply_to(message,
+    """Привет, я <b>Предложечный Бот</b> (!)
+    <b>Для чего Я нужен?</b>
+    ❓Присылать музыку в telegram канал —> t.me/mus_archives
+    ❓Cкачивать нужные вам треки по ссылке на их Youtube
+    ❓<i>Бесоебиться</i>
+    <b>Основные команды</b>
+    /remove — удалит последний скинутый вами трек из очереди
+    /help — вышлет вам текст, который вы сейчас читайте
+    /bag_report — нашли баг? пожалуйста, кратко опишите его в тексте после команды (/bag_report всё сломалось, сэр)
+    /app — приложение для поиска музыки на youtube""",
+    parse_mode="HTML")
 
+@bot.message_handler(commands = ['bug_report'])
+def report_bugs_from_users(message):
+    bot.send_message(chat_id = os.getenv("ADMIN_ID"), text = "🅰️🅰️🅰️ Bug Report of @" + message.chat.username+ " : " + message.text.replace("/bug_report", "") )
+#-----------------------------------------------------------------------------------------------------
 
 @bot.message_handler(commands = ['grade'])
 def grade_music(message):
@@ -64,7 +80,7 @@ def grade_music(message):
         caption='Постим?'
     )
     bot.send_message(chat_id=os.getenv('ADMIN_ID'),
-                     text=f'А? Username: @{message.chat.username} ChatID(UserID): {message.chat.id}',reply_markup=markup
+                     text=f'А? Username: {MessageMusicList[-1].getUserName()}',reply_markup=markup
     )
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -115,9 +131,26 @@ def reload_queue(message):
     print(type(os.getenv('ADMIN_ID')))
     bot.reply_to(message, text='Чувак, ты не адмиг..э')
 
-@bot.message_handler(content_types=['text', 'photo', 'video'])
+@bot.message_handler(content_types=['photo', 'video'])
 def is_not_correct(message):
     bot.send_message(chat_id=message.chat.id, text='Сэр, вы не тем занимаетесь! 🤓')
+
+@bot.message_handler(content_types=['text'])
+def getMusicOfYtLinks(message):
+    text = message.text
+
+    if text.find("music.youtube.com/") == -1 and text.find("youtube.com/") == -1 and text.find("youtu.be/") == -1:
+        bot.reply_to(message, text="Это не ссылка на youtube/youtube music.. (~ - *) ")
+    else:
+        link = text
+        music_filename = load_audio(link)
+        if music_filename == -1:
+            bot.reply_to(message, text="Что-то пошло не так(")
+            return -1
+        with open(music_filename, 'rb') as audio:
+            bot.send_audio(message.from_user.id, audio)
+        os.remove(music_filename)
+        os.remove(music_filename.replace(".mp3", ".webm"))
 
 
 @bot.message_handler(content_types=['audio'])
@@ -127,7 +160,7 @@ def getMusic(message):
     MessageMusicList.append(MusicMessage(_message_id=message.id, _chat_id=message.chat.id, _username=f'@{message.chat.username}'))
     bot.send_message(chat_id=message.chat.id, text=f'Всё успешно отправленно❇️')
     bot.send_message(chat_id=os.getenv('ADMIN_ID'),
-                     text=f'Новый трек закинут! Оценить всё, что накопилось --> /grade')
+                     text=f'Новый трек закинут! Оценить всё, что накопилось —> /grade')
     print(MessageMusicList)
 bot.infinity_polling(timeout=10, long_polling_timeout = 5)
 
