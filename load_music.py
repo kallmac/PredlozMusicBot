@@ -25,7 +25,10 @@ def refactor_title(title: str):
     for i in range(len(words)):
         if "(" in words[i] and ")" in words[i]:
             words.pop(i)
-    # ХЗ, Надо ли это
+    title = ' '.join(words)
+    if len(title) > 57:
+        title = title[:57] + ".."
+
     """ 
     if '-' in words:
         deleted = ''
@@ -34,10 +37,11 @@ def refactor_title(title: str):
         result = ' '.join(words)
         if len(result) <= 21:
             return result
-    """
+    
     while sum(map(len, words)) + len(words) - 1 > 18:
         words.pop()
-    return ' '.join(words) + "..."
+    """
+    return title
 
 
 def search_youtube_track(track_name):
@@ -70,10 +74,10 @@ def download_audio_with_yt_dlp(video_url):
             ydl.download([video_url])
     except:
         return -1
-    convert_webp_to_png(f'audio/{video_title}.webp')
-    img_filename = f'audio/{video_title}.png'
+    #convert_webp_to_png(f'audio/{video_title}.webp')
+    #img_filename = f'audio/{video_title}.png'
     audio_filename = f'audio/{video_title}.mp3'
-    add_cover_to_audio(audio_filename, img_filename)
+    #add_cover_to_audio(audio_filename, img_filename)
     return audio_filename
 
 
