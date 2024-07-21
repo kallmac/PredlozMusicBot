@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea5a5b7a-0994-4be8-bf77-8d8cf68b0e90" name="Changes" comment="Багрепорты, скачивание музыки, поиск музыки, нормальные фразы бота">
-      <change afterPath="$PROJECT_DIR$/test_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PredlozMusicBot.iml" beforeDir="false" />
+    <list default="true" id="ea5a5b7a-0994-4be8-bf77-8d8cf68b0e90" name="Changes" comment="говно">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_19_2024_5_08_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_19_2024_5_08_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load_music.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_music.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,21 +45,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Python.load_music.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.test_dowanload (1).executor": "Run",
-    "Python.test_dowanload.executor": "Run",
-    "Python.test_pytube.executor": "Run",
-    "Python.test_search.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/PROJECTS/PredlozMusicBot",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Python.load_music.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_dowanload (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_dowanload.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_pytube.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_search.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PROJECTS/PredlozMusicBot&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.spelling&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.main">
     <configuration name="load_music" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PredlozMusicBot" />
@@ -248,17 +244,37 @@
       <option name="project" value="LOCAL" />
       <updated>1721508894815</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="говно">
+      <option name="closed" value="true" />
+      <created>1721565947475</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721565947475</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Commit" />
     <MESSAGE value="Описание нормальное сделал" />
     <MESSAGE value="# TODO: [+] Поменять узернейм бота&#10;# TODO: [-] ПРИДЕЛАТЬ ОБЛОЖКИ К ТРЕКАМ&#10;# TODO: [+] НУЖНО СДЕЛАТЬ КЭШИРОВАНИЕ ТРЕКОВ В КАНАЛЕ ОТДЕЛЬНОМ&#10;# TODO: [+] Изменить фразы и добавить индикаторы на нормальные&#10;# TODO: [+] Скачивание трека по ссылке на ютуб&#10;# TODO: [+] Поиск по трекам на ютубе youtube-search-python&#10;# TODO: [-] inline Bots добавить функцию поиска треков там&#10;# TODO: [+] нормальный режим для баг репорторв&#10;# TODO: [-] Обложки для треков" />
     <MESSAGE value="Багрепорты, скачивание музыки, поиск музыки, нормальные фразы бота" />
-    <option name="LAST_COMMIT_MESSAGE" value="Багрепорты, скачивание музыки, поиск музыки, нормальные фразы бота" />
+    <MESSAGE value="говно" />
+    <option name="LAST_COMMIT_MESSAGE" value="говно" />
   </component>
 </project>
